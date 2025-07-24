@@ -1,0 +1,48 @@
+### Send POST request with json body
+POST http://localhost:8080/texCode
+Content-Type: application/json
+
+{
+  "resume": "MATHEUS BRUNO DE MORAES\nSupport Engineer | DevOps | Technical Implementation\n+55 (41) 9 9575-7856 | mbrunomoraes97@gmail.com | https://github.com/brunomoraes97 | https://www.linkedin.com/in/brunomoraes97/\nBrazilian, 28 years old\n\nSUMMARY\nExperienced Support and DevOps Engineer with a passion for managing the entire customer case lifecycle, from triage and reproduction to complex problem resolution. Proficient in Linux systems administration, scripting (Bash, Python), Git, and CI/CD, with a hands-on approach to solving technical challenges and optimizing workflows. Proven ability to act as a key liaison between Product and Engineering teams, ensuring smooth implementations, fast communication, and high customer satisfaction. Committed to creating and improving support content, with extensive experience in technical documentation and tutorials.\n\nSKILLS\nLinux Systems Administration: Extensive experience with Linux servers, performance troubleshooting, diagnostic tools, and Docker containers.\nDevOps & CI/CD: Implementation of CI/CD pipelines with GitHub Actions, management of staging and production environments, Git, and GitHub. Knowledge of Openshift and Kubernetes.\nProgramming Languages: Bash, Python, Java, C, Javascript, Ruby.\nAutomation & Scripting: Development of automation scripts (Selenium, Playwright, Puppeteer), process optimization, and API integrations.\nTechnical Support & Customer Experience: Customer case lifecycle management, complex technical communication, troubleshooting (API, S2S, platform), complex problem resolution, Localization.\nContent Creation: Extensive experience in writing support content, technical documentation, Knowledge Base articles, video tutorials, and troubleshooting guides.\nDatabases: MySQL (queries, data processing).\nSecurity & Compliance: Understanding of common information security and compliance concepts (OffSec).\nTools: Git, GitHub, Postman, Zendesk, Jira, Zapier, N8N and CRMs similar to HubSpot.",
+  "job_description": "Technical Recruiter\n\nAbout the Role:\nWe are seeking an experienced Technical Recruiter to join our growing talent acquisition team. The ideal candidate will have a strong understanding of technical roles and the ability to identify, attract, and evaluate top engineering talent.\n\nKey Responsibilities:\n• Source, screen, and evaluate technical candidates for software engineering, DevOps, and other technical positions\n• Partner with hiring managers to understand technical requirements and create effective job descriptions\n• Conduct technical screening calls to assess candidates' technical abilities and cultural fit\n• Maintain an active pipeline of qualified candidates through various sourcing channels\n• Stay current with industry trends, competitive landscape, and best practices in technical recruitment\n• Manage the full recruitment lifecycle from initial contact to offer acceptance\n\nRequired Qualifications:\n• 3+ years of technical recruiting experience, preferably in a software/technology company\n• Strong understanding of software development, engineering roles, and technical skills\n• Experience with modern recruiting tools and applicant tracking systems\n• Excellent communication and interpersonal skills\n• Proven track record of successfully placing technical candidates\n• Bachelor's degree in Human Resources, Computer Science, or related field\n\nPreferred Qualifications:\n• Experience with technical assessment tools and coding challenges\n• Knowledge of programming languages and software development methodologies\n• Experience recruiting for DevOps and cloud infrastructure roles\n• International recruitment experience\n• Certification in technical recruiting or HR\n\nBenefits:\n• Competitive base salary + commission structure\n• Comprehensive health insurance\n• Remote work flexibility\n• Professional development opportunities\n• Stock options\n• 401(k) matching\n\nLocation: Hybrid (3 days in office, 2 days remote)\nSalary Range: $80,000 - $120,000 DOE + Commission",
+  "language": "english"
+}
+
+### Send POST request with body as parameters
+POST https://examples.http-client.intellij.net/post
+Content-Type: application/x-www-form-urlencoded
+
+id = 999 &
+value = content &
+fact = IntelliJ %+ HTTP Client %= <3
+
+// HTTP Client will format this x-www-form-urlencoded string properly.
+
+### Send a form with the text and file fields
+POST https://examples.http-client.intellij.net/post
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="element-name"
+Content-Type: text/plain
+
+Name
+--WebAppBoundary
+Content-Disposition: form-data; name="data"; filename="data.json"
+Content-Type: application/json
+
+< ./request-form-data.json
+--WebAppBoundary--
+
+### Send request with dynamic variables in request's body
+POST https://examples.http-client.intellij.net/post
+Content-Type: application/json
+
+{
+  "id": {{$random.uuid}},
+  "price": {{$random.integer()}},
+  "ts": {{$timestamp}},
+  "value": "content"
+}
+
+###
