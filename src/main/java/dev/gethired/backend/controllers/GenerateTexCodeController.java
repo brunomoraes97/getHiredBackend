@@ -1,21 +1,21 @@
 package dev.gethired.backend.controllers;
 
+import dev.gethired.backend.services.TexCodeService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import dev.gethired.backend.dtos.ResumeAndJobDescriptionDTO;
-import dev.gethired.backend.services.AI;
 
 @RestController
-public class GenerateTexCode {
+public class GenerateTexCodeController {
     
-    private final AI aiService;
+    private final TexCodeService texCodeService;
 
     @Autowired
-    public GenerateTexCode(AI aiService) {
-        this.aiService = aiService;
+    public GenerateTexCodeController(TexCodeService texCodeService) {
+        this.texCodeService = texCodeService;
     }
 
     @PostMapping("/texCode")
@@ -24,6 +24,6 @@ public class GenerateTexCode {
         String jobDescription = requestBody.getJob_description();
         String language = requestBody.getLanguage();
 
-        return aiService.generateTexCode(resume, jobDescription, language);
+        return texCodeService.generateTexCode(resume, jobDescription, language);
     }
 }
